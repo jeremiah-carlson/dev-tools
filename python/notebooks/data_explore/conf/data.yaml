@@ -1,0 +1,7 @@
+
+iris:
+  path-type: 'url'
+  path: 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+  headers: ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)', 'class']
+
+
