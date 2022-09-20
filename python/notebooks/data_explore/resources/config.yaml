@@ -1,0 +1,10 @@
+db-cred:
+  server: ''
+  user: ''
+  pass: ''
+
+test-data:
+  iris:
+    path-type: 'url'
+    path: 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+
