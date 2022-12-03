@@ -2,6 +2,16 @@
 
 # Snippets
 
+## Setup
+
+### Read Configs
+```python
+def parse_configs()-> Dict:
+    with open(PARENT_DIR / 'conf' / 'config.yaml', 'r') as conf:
+        return yaml.safe_load(conf)
+```
+
+
 ## Data Formatting
 
 ### Format Headers
@@ -23,7 +33,7 @@ def presentation_headers(data:pd.DataFrame):
 ```python
 class log():
     def __init__(self, line:list, title='', sep='\t', path=''):
-        if title=='':
+        if title == '':
             self.title = 'log.txt'
         else:
             self.title = title + '_log.txt'
@@ -34,4 +44,11 @@ class log():
     def write_log(self):
         with open(self.path + self.title, 'a+') as lg:
             lg.write(self.sep.join(self.line) + '\n')
+```
+
+### Log Runtime Data
+```python
+def log_runtime()-> None:
+    with open(PARENT_DIR / 'conf' / 'runtime.yaml', 'w') as p_log:
+        p_log.write('ppid: %s\npid: %s' % (os.getppid(), os.getpid()))
 ```
