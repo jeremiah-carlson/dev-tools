@@ -1,0 +1,15 @@
+version: "2.19.1"
+
+services:
+  jupyter:
+      image: ghcr.io/jeremiah-carlson/jupyter3_11:latest
+      container_name: jupyter_server
+      restart: unless-stopped
+      ports:
+          - "8080:8080"
+      volumes:
+          - jupyter_files:/home/jupyter
+
+volumes:
+  jupyter_files:
+        
