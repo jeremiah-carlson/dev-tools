@@ -24,12 +24,12 @@ type server struct {
 // SayHello implements helloworld.GreeterServer
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	log.Printf("Received: %v", in.GetName())
-	return &pb.HelloReply{Message: "Hello " + in.GetName() + ", how are you today?"}, nil
+	return &pb.HelloReply{Out: "Hello " + in.GetName() + ", how are you today?", Test: "Test1"}, nil
 }
 
 func (s *server) SayGoodbye(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	log.Printf("Received: %v", in.GetName())
-	return &pb.HelloReply{Message: "Goodbye " + in.GetName() + ", it was nice meeting you."}, nil
+	return &pb.HelloReply{Out: "Goodbye " + in.GetName() + ", it was nice meeting you.", Test: "Test1"}, nil
 }
 
 func main() {
