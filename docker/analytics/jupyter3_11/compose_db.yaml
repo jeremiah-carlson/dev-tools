@@ -1,0 +1,40 @@
+version: "2.19.1"
+
+services:
+  jupyter_server:
+    image: ghcr.io/jeremiah-carlson/jupyter3_11:latest
+    hostname: jupyter_server
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - jupyter_files:/home/jupyter/persistent
+    networks:
+      jupyter_net:
+        ipv4_address: "192.168.112.2"
+
+  jupyter_db:
+    image: postgres:bullseye
+    hostname: jupyter_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=app_name
+      - POSTGRES_PASSWORD=testPass_01
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      jupyter_net:
+        ipv4_address: "192.168.112.3"
+
+volumes:
+  jupyter_files:
+  pgdata:
+
+networks:
+  jupyter_net:
+    driver: bridge
+    name: jupyter_net
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.112.0/24"
