@@ -28,11 +28,10 @@ jobs:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
         context: ./docker/analytics/jupyter3_11
         push: true
-        tags: |
-          ghcr.io/jeremiah-carlson/jupyter3_11:latest
-          ghcr.io/jeremiah-carlson/jupyter3_11:${{ steps.datetime.outputs.datetime }}
+        tags: ghcr.io/jeremiah-carlson/jupyter3_11:latest
