@@ -10,6 +10,7 @@ USER jupyter
 WORKDIR /home/jupyter
 COPY ./requirements.txt ./requirements.txt
 RUN pip3 install -r requirements.txt
+RUN pip3 install psycopg2
 RUN export PATH="/home/jupyter/.local/bin:$PATH"
 #RUN mkdir -p persistent/notebooks persistent/data persistent/helpers
 RUN mkdir -p non_persistent/notebooks non_persistent/data non_persistent/helpers
