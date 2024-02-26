@@ -15,7 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: cd docker/analytics/jupyter3_11/ && docker build -t ghcr.io/jeremiah-carlson/jupyter3_11:$DATE_TIME .
+      working-directory: ./docker/analytics/jupyter3_11
+      run: docker build -t ghcr.io/jeremiah-carlson/jupyter3_11:$DATE_TIME -f Dockerfile
 
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v1
