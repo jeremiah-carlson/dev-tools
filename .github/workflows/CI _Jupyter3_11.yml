@@ -26,7 +26,7 @@ jobs:
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
-        username: ${{ github.repository_owner }}
+        username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Build and push
@@ -34,4 +34,4 @@ jobs:
       with:
         context: ./docker/analytics/jupyter3_11
         push: true
-        tags: ghcr.io/jeremiah-carlson/jupyter3_11:latest
+        tags: ghcr.io/jeremiah-carlson/dev-tools/jupyter3_11:latest
