@@ -22,7 +22,7 @@ jobs:
       run: docker build -t ghcr.io/jeremiah-carlson/jupyter3_11:${{ steps.datetime.outputs.datetime }} -f Dockerfile .
 
     - name: Login to GitHub Container Registry
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
