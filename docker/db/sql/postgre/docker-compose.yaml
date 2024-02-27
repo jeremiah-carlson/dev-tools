@@ -1,0 +1,10 @@
+services:
+    db:
+      image: docker.io/library/postgres:12.16-alpine3.18
+        container_name: postgres-main
+        restart: unless-stopped
+        ports:
+            - "5432:5432"
+        environment:
+          POSTGRES_PASSWORD: speaker-lamp-plug-112
+
