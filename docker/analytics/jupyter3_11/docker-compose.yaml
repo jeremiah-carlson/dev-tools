@@ -2,7 +2,7 @@ version: "2.19.1"
 
 services:
   jupyter:
-      image: ghcr.io/jeremiah-carlson/jupyter3_11:latest
+      image: ghcr.io/jeremiah-carlson/dev-tools/jupyter3_11:latest
       container_name: jupyter_server
       restart: unless-stopped
       ports:
